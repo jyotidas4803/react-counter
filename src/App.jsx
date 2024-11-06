@@ -1,12 +1,13 @@
-import React from 'react'
-import Counter from './Counter'
+import Counter from "./Counter";
 
 function App() {
   return (
-   <main className='grid place-item-center bg-slate-200'>
-<Counter />
-   </main>
-  )
+    <main className="grid place-items-center min-h-screen bg-slate-100">
+      <div>
+        <Counter />
+      </div>
+    </main>
+  );
 }
 
 export default App;

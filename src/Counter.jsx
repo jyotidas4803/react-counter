@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState } from "react";
 
 function Counter() {
-let counter =0;
+  const [stateValue, func] = useState(10);
 
-const handleClick=()=>{
-    counter += 1;
-    console.log(counter);
-};
+  const handleClick = () => {
+    func(100);
+  };
 
   return (
-    <div className='flex gap-2 text-5xl item-center justify-center border-4 p-5'>
-        <button className='p-2 rounded flex bg-blue-300' onClick={handleClick}>-</button>
-        <p>{counter}</p>
-        <button className='p-2 rounded flex bg-blue-300' onClick={handleClick}>+</button>
+    <div className="flex gap-4 text-5xl items-center justify-center border-4 p-3">
+      <button className="btn" onClick={handleClick}>
+        -
+      </button>
+      <p>{stateValue}</p>
+      <button className="btn" onClick={handleClick}>
+        +
+      </button>
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;
