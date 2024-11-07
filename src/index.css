@@ -1,7 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.container {
+  @apply flex flex-col items-center justify-center min-h-screen gap-4;
+}
 
-.btn {
-  @apply p-2 bg-blue-300 rounded flex;
+.btn{
+  @apply rounded bg-blue-500 text-white px-4 py-2 font-bold;
+}
+
+.red{
+  @apply  bg-red-500 !important;
 }
