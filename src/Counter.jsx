@@ -1,56 +1,34 @@
-// import React, { useState } from "react";
+import { useState } from "react";
 
-// function Counter() {
-//   const [stateValue, func] = useState(10);
+function Counter({ start = 0, step = 1, danger = false }) {
+  const [counter, setCounter] = useState(+start);
 
-//   const handleClick = () => {
-//     func(100);
-//   };
-
-//   return (
-//     <div className="flex gap-4 text-5xl items-center justify-center border-4 p-3">
-//       <button className="btn" onClick={handleClick}>
-//         -
-//       </button>
-//       <p>{stateValue}</p>
-//       <button className="btn" onClick={handleClick}>
-//         +
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default Counter;
-
-
-import React, { useState } from "react";
-
-function Counter({start = 0 , step = 10, danger=false}) {
-
-const [counter, updateCounter] = useState(+start);
-
-
-const handleClick = (type) => {
-    if(type==='minus'){
-        updateCounter(counter-10);
-        console.log('clicked-');
-        return
+  const handleClick = (type) => {
+    if (type === "minus") {
+      setCounter(counter - step);
+      return;
     }
-    updateCounter(counter+10);
-    console.log('clicked+');
-    
-};
 
-
+    setCounter(counter + step);
+  };
 
   return (
-    <div className='flex items-center border-4 p-3 gap-4'>
-
-        <button className={`btn ${danger?'red':''}`} onClick={()=>handleClick('minus')}>-</button>
-        <p className='text-2xl font-bold'>{counter}</p>
-        <button className={`btn ${danger?'red':''}`} onClick={()=>handleClick('plus')}>+</button>
+    <div className="flex items-center gap-4 border p-1">
+      <button
+        className={`btn ${danger && "red"}`}
+        onClick={() => handleClick("minus")}
+      >
+        -
+      </button>
+      <p className="text-4xl font-bold">{counter}</p>
+      <button
+        className={`btn ${danger && "red"}`}
+        onClick={() => handleClick()}
+      >
+        +
+      </button>
     </div>
-  )
+  );
 }
 
 export default Counter;
